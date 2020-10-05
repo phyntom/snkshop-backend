@@ -1,0 +1,24 @@
+{
+   "name": "sneakershop",
+   "version": "1.0.0",
+   "description": "sneaker city eCommerce using MERN",
+   "main": "server.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev-start": "nodemon snkshop-backend/server.js",
+      "start": "node snkshop-backend/server.js"
+   },
+   "keywords": [
+      "sneaker-api",
+      "sneaker-app"
+   ],
+   "author": "Aimable RUHUMURIZA",
+   "license": "ISC",
+   "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^4.17.1"
+   },
+   "devDependencies": {
+      "nodemon": "^2.0.4"
+   }
+}
