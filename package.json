@@ -5,8 +5,12 @@
    "main": "server.js",
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "dev-start": "nodemon snkshop-backend/server.js",
-      "start": "node snkshop-backend/server.js"
+      "server": "nodemon server.js",
+      "client": "npm start --prefix ../snkshop-frontend",
+      "start": "node server.js",
+      "dev": "concurrently \"npm run server\" \"npm run client\"",
+      "destroy": "node seeder.js -d",
+      "import": "node seeder.js -im"
    },
    "keywords": [
       "sneaker-api",
@@ -15,10 +19,15 @@
    "author": "Aimable RUHUMURIZA",
    "license": "ISC",
    "dependencies": {
+      "bcryptjs": "^2.4.3",
+      "colors": "^1.4.0",
       "cors": "^2.8.5",
-      "express": "^4.17.1"
+      "express": "^4.17.1",
+      "mongoose": "^5.10.8"
    },
    "devDependencies": {
+      "concurrently": "^5.3.0",
+      "dotenv": "^8.2.0",
       "nodemon": "^2.0.4"
    }
 }

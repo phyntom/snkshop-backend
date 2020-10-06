@@ -1,9 +1,16 @@
 const express = require('express');
 const cors = require('cors');
+const dotenv = require('dotenv');
+const colors = require('colors');
 const products = require('./data/products');
+const connectDB = require('./config/dbConnection');
 const app = express();
 
+dotenv.config();
+
 app.use(cors());
+
+connectDB();
 
 app.get('/', (req, res, next) => {
    res.send('API is running');
@@ -19,4 +26,8 @@ app.get('/api/products/:id', (req, res) => {
    res.json(product);
 });
 
-app.listen(5000, console.log('server running on port 5000'));
+const PORT = process.env.PORT || 5000;
+
+app.listen(process.env.PORT, () => {
+   console.log(`server running in ${process.env.NODE_ENV} on port ${process.env.PORT}`);
+});
