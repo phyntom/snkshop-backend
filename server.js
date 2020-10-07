@@ -12,6 +12,8 @@ dotenv.config();
 
 app.use(cors());
 
+app.use(express.json());
+
 connectDB();
 
 app.get('/', (req, res) => {
@@ -19,11 +21,10 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/products', productRoutes);
-
 app.use('/api/users', userRoutes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 6000;
 
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
    console.log(`server running in ${process.env.NODE_ENV} on port ${process.env.PORT}`);
 });
