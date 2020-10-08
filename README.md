@@ -30,9 +30,11 @@ This is also simple but you need to make sure that you have mongodb installed on
 -  [x] `node dummyLoader.js -d`
 -  [x] `node dummyLoader.js -im`
 -  [x] `npm run start`
-       If you want to troubleshoot you can also run the application using **nodemon** in case you intend to work on it .here is the command
-       `nodemon server.js`
-   > Node that after running the backend you should have the following output displayed on your screen
+
+If you want to troubleshoot you can also run the application using **nodemon** in case you intend to work on it .here is the command
+`nodemon server.js`
+
+> Node that after running the backend you should have the following output displayed on your screen
 
 ```
 mongodb://127.0.0.1:27017/snkshop?poolSize=20
