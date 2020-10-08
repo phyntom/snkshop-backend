@@ -16,6 +16,7 @@ const products = [
       ],
       rating: 4.5,
       numReviews: 12,
+      releaseDate: '2020-05-18',
    },
    {
       name: 'Quest 3',
@@ -34,6 +35,7 @@ const products = [
       ],
       rating: 4.0,
       numReviews: 8,
+      releaseDate: '2020-01-18',
    },
    {
       name: 'Nike Zoom Winflo 7',
@@ -52,6 +54,7 @@ const products = [
       ],
       rating: 3,
       numReviews: 12,
+      releaseDate: '2019-09-20',
    },
    {
       name: 'EQT Support Ultra',
@@ -70,6 +73,7 @@ const products = [
       ],
       rating: 5,
       numReviews: 12,
+      releaseDate: '2019-05-14',
    },
    {
       name: 'Nike Air Zoom Pegasus 37',
@@ -88,6 +92,7 @@ const products = [
       ],
       rating: 3.5,
       numReviews: 10,
+      releaseDate: '2020-10-20',
    },
    {
       name: 'Adidas Originals X PLR',
@@ -106,6 +111,7 @@ const products = [
       ],
       rating: 4,
       numReviews: 12,
+      releaseDate: '2020-10-24',
    },
    {
       name: 'Ultra Flex 2.0 Kelmar',
@@ -124,6 +130,7 @@ const products = [
       ],
       rating: 4,
       numReviews: 12,
+      releaseDate: '2020-09-24',
    },
    {
       name: 'Techloom Phantom',
@@ -142,6 +149,7 @@ const products = [
       ],
       rating: 4,
       numReviews: 12,
+      releaseDate: '2020-10-04',
    },
 ];
 

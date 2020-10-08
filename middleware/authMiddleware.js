@@ -5,12 +5,14 @@ const generateToken = require('../utils/generateToken');
 
 // @desc method use to protect our routes
 
-const protected = async (req, res, next) => {
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || 'secret!@#123';
+
+const protectedPath = async (req, res, next) => {
    try {
       let authorization = req.headers.authorization;
       if (authorization && authorization.startsWith('Bearer')) {
          let token = authorization.split(' ')[1];
-         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+         const decoded = jwt.verify(token, WT_SECRET_KEY);
          req.user = await User.findById(decoded.id).select('-password');
          next();
       } else {
@@ -23,4 +25,4 @@ const protected = async (req, res, next) => {
    }
 };
 
-module.exports = protected;
+module.exports = protectedPath;

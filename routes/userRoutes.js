@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const generateToken = require('../utils/generateToken');
-const protected = require('../middleware/authMiddleware');
+const protectedPath = require('../middleware/authMiddleware');
 
 // @desc use athentication routes
 // @route GET /api/users/login
@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
 // @route GET /api/users/profile
 // @access private
 
-router.route('/profile').get(protected, async (req, res) => {
+router.route('/profile').get(protectedPath, async (req, res) => {
    try {
       const user = await User.findById(req.user._id);
       if (user) {
@@ -72,7 +72,12 @@ router.route('/').post(async (req, res) => {
             email,
             password: bcrypt.hashSync(password, 10),
          }).save();
-         res.status(201).json({ message: 'User created successfull' });
+         res.status(201).json({
+            _id: createdUser._id,
+            name: createdUser.name,
+            email: createdUser.email,
+            isAdmin: createdUser.isAdmin,
+         });
       }
    } catch (error) {
       console.error(error);
@@ -84,7 +89,7 @@ router.route('/').post(async (req, res) => {
 // @route PUT /api/users
 // @access public
 
-router.route('/').patch(protected, async (req, res) => {
+router.route('/').patch(protectedPath, async (req, res) => {
    try {
       const user = await User.findById(req.user._id);
       const { name, email, password } = req.body;
