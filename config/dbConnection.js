@@ -4,8 +4,8 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://127.0.0.1:27017/snkshop?poolSize=20';
-
+// const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://127.0.0.1:27017/snkshop?poolSize=20';
+const MONGO_URI = process.env.MONGO_URI;
 console.log(MONGO_URI);
 
 const connectDB = async () => {
