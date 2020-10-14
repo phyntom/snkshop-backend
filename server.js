@@ -1,16 +1,17 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-// const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 const colors = require('colors');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 const connectDB = require('./config/dbConnection');
 const errorHandler = require('./middleware/errorHandleMiddleware');
 
 const app = express();
 
-// dotenv.config();
+dotenv.config();
 
 app.use(cors());
 
@@ -24,6 +25,7 @@ connectDB();
 
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
 
 app.use(express.static(path.join(__dirname, './public')));
 
