@@ -6,7 +6,6 @@
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "server": "nodemon server.js",
-      "client": "npm start --prefix ../snkshop-frontend",
       "start": "node server.js",
       "dev": "concurrently \"npm run server\" \"npm run client\"",
       "destroy": "node seeder.js -d",
