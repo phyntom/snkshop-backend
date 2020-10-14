@@ -4,13 +4,13 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const DB_URI = process.env.DB_URI || 'mongodb+srv://127.0.0.1:27017/snkshop?poolSize=20';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://127.0.0.1:27017/snkshop?poolSize=20';
 
-console.log(DB_URI);
+console.log(MONGO_URI);
 
 const connectDB = async () => {
    try {
-      const dbConn = await mongoose.connect(DB_URI, {
+      const dbConn = await mongoose.connect(MONGO_URI, {
          useUnifiedTopology: true,
          useNewUrlParser: true,
          createIndexes: true,

@@ -10,10 +10,10 @@ const protectedPath = require('../middleware/authMiddleware');
 // @route GET /api/users/login
 // @access public
 
-router.post('/login', async (req, res) => {
+router.post('/login', async (req, res, next) => {
+   const body = await req.body;
+   const { email, password } = body;
    try {
-      const body = await req.body;
-      const { email, password } = body;
       const user = await User.findOne({ email });
       if (user && (await bcrypt.compare(password, user.password))) {
          res.status(200).json({
@@ -25,11 +25,10 @@ router.post('/login', async (req, res) => {
          });
       } else {
          res.status(401);
-         res.json({ message: 'Invalid username or email' });
+         throw new Error('Invalid username or password');
       }
    } catch (error) {
-      res.status(500);
-      res.json({ message: error.message });
+      next(error);
    }
 });
 
@@ -37,7 +36,7 @@ router.post('/login', async (req, res) => {
 // @route GET /api/users/profile
 // @access private
 
-router.route('/profile').get(protectedPath, async (req, res) => {
+router.route('/profile').get(protectedPath, async (req, res, next) => {
    try {
       const user = await User.findById(req.user._id);
       if (user) {
@@ -48,11 +47,11 @@ router.route('/profile').get(protectedPath, async (req, res) => {
             isAdmin: user.isAdmin,
          });
       } else {
-         res.status(404).json({ message: 'User not found' });
+         res.status(404);
+         throw new Error('User not found');
       }
    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: `${error.message}` });
+      next(error);
    }
 });
 
@@ -60,12 +59,13 @@ router.route('/profile').get(protectedPath, async (req, res) => {
 // @route POST /api/users
 // @access public
 
-router.route('/').post(async (req, res) => {
+router.route('/').post(async (req, res, next) => {
    try {
       const { name, email, password } = req.body;
       const exist = await User.findOne({ email });
       if (exist) {
-         res.status(400).json({ message: 'User already exists' });
+         res.status(400);
+         throw new Error('User already exists !!');
       } else {
          const createdUser = await new User({
             name,
@@ -80,8 +80,7 @@ router.route('/').post(async (req, res) => {
          });
       }
    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: `${error.message}` });
+      next(error);
    }
 });
 
@@ -89,12 +88,10 @@ router.route('/').post(async (req, res) => {
 // @route PUT /api/users
 // @access public
 
-router.route('/').patch(protectedPath, async (req, res) => {
+router.route('/').patch(protectedPath, async (req, res, next) => {
    try {
       const user = await User.findById(req.user._id);
       const { name, email, password } = req.body;
-      console.dir(req.body);
-
       if (!user) {
          res.status(400).json({ message: 'Cannot update unexistinng user' });
       } else {
@@ -113,8 +110,7 @@ router.route('/').patch(protectedPath, async (req, res) => {
          });
       }
    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: `${error.message}` });
+      next(error);
    }
 });
 

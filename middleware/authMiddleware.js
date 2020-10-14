@@ -12,16 +12,15 @@ const protectedPath = async (req, res, next) => {
       let authorization = req.headers.authorization;
       if (authorization && authorization.startsWith('Bearer')) {
          let token = authorization.split(' ')[1];
-         const decoded = jwt.verify(token, WT_SECRET_KEY);
+         const decoded = await jwt.verify(token, JWT_SECRET_KEY);
          req.user = await User.findById(decoded.id).select('-password');
-         next();
       } else {
-         console.error(error);
-         res.status(401).json({ message: 'Not authorized , no token' });
+         res.status(401);
+         throw new Error('Not authorized , no token');
       }
+      next();
    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: `Error : ${error.message}` });
+      next(error);
    }
 };
 

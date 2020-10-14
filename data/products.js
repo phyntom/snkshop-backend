@@ -25,7 +25,7 @@ const products = [
       description:
          'Breathable mesh upper with structured midfoot containment for structural support.\nFlywire lace-up closure.Lightly padded tongue and collar.Bootie construction provides a snug fit.Removable insole.* Rubber outsole offers zonal traction, ride rail, and a crash pad that combine with flex groove pistons at the forefoot for a comfortable and flexible ride.',
       category: 'Men',
-      price: 599.99,
+      price: 65.99,
       countInStock: 7,
       variants: [
          { size: '8', quantity: 2 },
@@ -44,7 +44,7 @@ const products = [
       description:
          'Nike® Air Zoom™ unit in the heel and forefoot provides cushioning where you need it. The unit in the forefoot is larger in size for a better underfoot sensation.Durable rubber outsole with an extended heel counter and waffle-tread pattern helps to provide traction on various surfaces',
       category: 'Men',
-      price: 929.99,
+      price: 85.99,
       countInStock: 5,
       variants: [
          { size: '8', quantity: 4 },
@@ -63,7 +63,7 @@ const products = [
       description:
          'OG-inspired mesh upper with premium nubuck overlays and reflective quarter panel for added visual pop.OrthoLite® sockliner for comfort and performance.boost™ is adidas most responsive cushioning ever - the more energy you give, the more you get.TPU medial support piece.TORSION® SYSTEM for midfoot integrity',
       category: 'Men',
-      price: 399.99,
+      price: 67.99,
       countInStock: 11,
       variants: [
          { size: '8', quantity: 5 },
@@ -119,8 +119,8 @@ const products = [
       brand: 'Skechers',
       description:
          'Lightweight, flexible, and comfortable, you will look forward to daily workouts like never before with the SKECHERS® Ultra Flex 2.0 Kelmar.Training sneaker with an engineered mesh fabric upper for breathability.Slip-on style with a sport bungee lacing system.Interwoven ventilating panels at toe and sides',
-      category: 'Woman',
-      price: 29.99,
+      category: 'Women',
+      price: 35.99,
       countInStock: 21,
       variants: [
          { size: '8', quantity: 4 },
@@ -138,9 +138,28 @@ const products = [
       brand: 'Athletic propulsion labs',
       description:
          'Lace-up closure connected through hidden eyelets.Slip-on construction with back pull-tab.Brand name logo hardware featured at the center of the tongue.Rounded toe silhouette.Soft textile lining.Lightly cushioned textile footbed',
-      category: 'Woman',
+      category: 'Women',
+      price: 25.99,
+      countInStock: 50,
+      variants: [
+         { size: '8', quantity: 4 },
+         { size: '9', quantity: 23 },
+         { size: '10', quantity: 14 },
+         { size: '11', quantity: 9 },
+      ],
+      rating: 4,
+      numReviews: 12,
+      releaseDate: '2020-10-04',
+   },
+   {
+      name: 'Matrix Sneakers',
+      image: '/images/hugo-matrix-sneakers-gray-a.png',
+      brand: 'Hugo Boss',
+      description:
+         'The BOSS Hugo Boss® Matrix Sneakers is a sporty must-have for season after season. Made of synthetic and textile materials in a colorful hue with a lace-up closure.Breathable textile lining and cushioned footbed for all-day wear.Flexible and lightweight rubber outsole',
+      category: 'Women',
       price: 29.99,
-      countInStock: 21,
+      countInStock: 46,
       variants: [
          { size: '8', quantity: 4 },
          { size: '9', quantity: 23 },
@@ -149,7 +168,45 @@ const products = [
       ],
       rating: 4,
       numReviews: 12,
-      releaseDate: '2020-10-04',
+      releaseDate: '2020-01-07',
+   },
+   {
+      name: 'Jazz Low Pro',
+      image: '/images/jazz-low-pro.png',
+      brand: 'Saucony',
+      description:
+         'With a sleeker, more compact design, the Saucony Originals® Jazz Low Pro casual sneakers pay homage to its predecessor while continuing to deliver the retro style that you know and love BOSS Hugo Boss® Matrix Sneakers is a sporty must-have for season after season. Made of synthetic and textile materials in a colorful hue with a lace-up closure.Breathable textile lining and cushioned footbed for all-day wear.Flexible and lightweight rubber outsole.Casual shoes with combination nylon and suede uppers for comfort and rugged durability',
+      category: 'Women',
+      price: 59.95,
+      countInStock: 46,
+      variants: [
+         { size: '8', quantity: 5 },
+         { size: '9', quantity: 11 },
+         { size: '10', quantity: 13 },
+         { size: '11', quantity: 17 },
+      ],
+      rating: 3.5,
+      numReviews: 100,
+      releaseDate: '2020-03-10',
+   },
+   {
+      name: 'Breeze Tennis Knit Sneakers',
+      image: '/images/tennis-knit-sneakers.png',
+      brand: 'Swims',
+      description:
+         'Adventuring never looked so stylish with the SWIMS™ Breeze Tennis Knit Sneakers.Lightweight woven knit upper.Perforated sides allows for breathable comfort.',
+      category: 'Women',
+      price: 102.99,
+      countInStock: 35,
+      variants: [
+         { size: '8', quantity: 8 },
+         { size: '9', quantity: 6 },
+         { size: '10', quantity: 10 },
+         { size: '11', quantity: 11 },
+      ],
+      rating: 4.5,
+      numReviews: 45,
+      releaseDate: '2020-07-23',
    },
 ];
 
