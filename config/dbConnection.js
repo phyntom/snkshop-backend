@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 const colors = require('colors');
 
-const MONGO_URI =
-   process.env.MONGO_URI ||
-   'mongodb+srv://phyntom:Mespeloua123@cluster0.vylsk.mongodb.net/snkshop?retryWrites=true&w=majority';
+const MONGO_URI = process.env.MONGO_URI;
 
 console.log(MONGO_URI);
 

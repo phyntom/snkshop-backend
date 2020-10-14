@@ -71,3 +71,16 @@ All those functionalities are available in form of REST APIs which we will push 
 -  etc
 
 > **Note:** The **Publish now** button is disabled if your file has not been published yet.
+
+## Deployment
+
+For the purpose of deployment I have the front-end is build folder is automatically put in **public** folder of the backend but this is a personal preference and one may prefer to separate them completely. For this demo note that is done like that.
+
+The URL to access the demo is
+`` https://snkshop-v1.herokuapp.com/
+
+Different users have been created to login when checkout process is underway
+
+-  email: john@example.com | password : john!@#123
+-  email: admin@example.com| password : admin!@#123
+-  email: jane@example.com | password : jane!@#123
