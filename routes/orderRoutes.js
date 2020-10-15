@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const User = require('../models/userModel');
 const Order = require('../models/orderModel');
 const bcrypt = require('bcryptjs');
-const generateToken = require('../utils/generateToken');
 const protectedPath = require('../middleware/authMiddleware');
 
 router.route('/').get(protectedPath, async (req, res, next) => {
