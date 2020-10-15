@@ -9,7 +9,33 @@ const protectedPath = require('../middleware/authMiddleware');
 
 router.route('/').get(protectedPath, async (req, res, next) => {
    try {
-      const orders = await Order.find({});
+      const orders = await Order.find({})
+         .populate({
+            path: 'user',
+            model: 'User',
+         })
+         .populate({
+            path: 'orderItems.product',
+            model: 'Product',
+         });
+      res.status(200).json(orders);
+   } catch (error) {
+      next(error);
+   }
+});
+
+router.route('/:id').get(protectedPath, async (req, res, next) => {
+   try {
+      const orderId = req.params.id;
+      const orders = await Order.findById(orderId)
+         .populate({
+            path: 'user',
+            model: 'User',
+         })
+         .populate({
+            path: 'orderItems.product',
+            model: 'Product',
+         });
       res.status(200).json(orders);
    } catch (error) {
       next(error);
@@ -33,7 +59,7 @@ router.route('/').post(protectedPath, async (req, res, next) => {
       } else {
          const order = new Order({
             user: req.user,
-            orderItems,
+            orderItems: orderItems,
             shippingAddress,
             paymentMethod,
             itemsPrice,
@@ -41,9 +67,10 @@ router.route('/').post(protectedPath, async (req, res, next) => {
             shippingPrice,
             totalPrice,
          });
-         const createOrder = await order.save();
+         const createdOrder = await order.save();
+         console.log(createdOrder);
          res.status(201);
-         res.json(createOrder);
+         res.json(createdOrder);
       }
    } catch (error) {
       next(error);
