@@ -67,9 +67,29 @@ router.route('/').post(protectedPath, async (req, res, next) => {
             totalPrice,
          });
          const createdOrder = await order.save();
-         console.log(createdOrder);
          res.status(201);
          res.json(createdOrder);
+      }
+   } catch (error) {
+      next(error);
+   }
+});
+
+router.route('/').patch(protectedPath, async (req, res, next) => {
+   try {
+      console.dir(req.body);
+      const { orderId, isPaid, paidAt, isDelivered, deliveredAt } = req.body;
+      const order = await Order.findById(orderId);
+
+      if (!order) {
+         res.status(400).json({ message: 'Cannot update unexistinng order' });
+      } else {
+         order.isPaid = isPaid || order.isPaid;
+         order.paidAt = paidAt || order.paidAt;
+         order.isDelivered = isDelivered || order.isPaid;
+         order.deliveredAt = deliveredAt || order.paidAt;
+         const updatedOrder = await order.save();
+         res.status(201).json(updatedOrder);
       }
    } catch (error) {
       next(error);
