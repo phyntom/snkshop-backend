@@ -2,7 +2,6 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 const generateToken = require('../utils/generateToken');
-
 // @desc method use to protect our routes
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || 'secret!@#123';

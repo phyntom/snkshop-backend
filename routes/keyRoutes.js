@@ -12,5 +12,6 @@ router.route('/paypal/key').get(protectedPath, async (req, res, next) => {
       next(error);
    }
 });
+router.route('/stripe/key').get(protectedPath, async (req, res, next) => {});
 
 module.exports = router;
