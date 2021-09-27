@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 const colors = require('colors');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -10,7 +10,7 @@ const errorHandler = require('./middleware/errorHandleMiddleware');
 
 const app = express();
 
-dotenv.config();
+// dotenv.config();
 
 app.use(cors());
 

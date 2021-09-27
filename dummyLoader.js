@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 const connectDB = require('./config/dbConnection');
 
 const users = require('./data/users');
@@ -9,7 +9,7 @@ const User = require('./models/userModel');
 const Product = require('./models/productModel');
 const Order = require('./models/orderModel');
 
-dotenv.config();
+// dotenv.config();
 
 connectDB();
 
