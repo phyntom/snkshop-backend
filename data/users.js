@@ -17,6 +17,11 @@ const users = [
       email: 'jane@example.com',
       password: bcrypt.hashSync('jane!@#123', 10),
    },
+   {
+      name: 'Phyntom A',
+      email: 'phyntom@gmail.com',
+      password: bcrypt.hashSync('Mespeloua!@#123', 10),
+   },
 ];
 
 module.exports = users;
